@@ -29,7 +29,7 @@ public class PlayerCtrl : MonoBehaviour
     //SoundEffect
     public AudioSource audioSource;
     public AudioClip jumpSound;
-
+//
     
 
     private void Awake()
