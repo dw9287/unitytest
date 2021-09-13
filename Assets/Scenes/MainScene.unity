@@ -269,6 +269,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1564447215322438930, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
   m_PrefabInstance: {fileID: 1226196123}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &406525041 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1564447215322438943, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+  m_PrefabInstance: {fileID: 1226196123}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406525040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3102fe667b0a054ea087e2b2a388a2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &406525048
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6850,9 +6861,21 @@ PrefabInstance:
       propertyPath: bgmCtrl
       value: 
       objectReference: {fileID: 156598885}
+    - target: {fileID: 406525047, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: playerCtrl
+      value: 
+      objectReference: {fileID: 406525041}
+    - target: {fileID: 2082720589, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.29
+      objectReference: {fileID: 0}
     - target: {fileID: 1564447215322438930, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564447215322438931, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 1564447215322438941, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: m_RootOrder
@@ -6910,6 +6933,10 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 406525048}
+    - target: {fileID: 1564447215615638722, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.69
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
 --- !u!1 &1319550466

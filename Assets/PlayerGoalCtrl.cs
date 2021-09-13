@@ -30,6 +30,7 @@ public class PlayerGoalCtrl : MonoBehaviour
     {
         if (collision.CompareTag("Gem")&&isGoal==false)
         {
+            collision.GetComponent<SpriteRenderer>().enabled = false;
             StartCoroutine(GameClear(collision));
             isGoal = true;
         }

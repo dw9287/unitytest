@@ -11,5 +11,5 @@ public class toGameClear : MonoBehaviour
         SceneManager.LoadScene("GameClearScene");
     }
 
-  
+ 
 }
