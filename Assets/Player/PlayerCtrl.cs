@@ -29,8 +29,14 @@ public class PlayerCtrl : MonoBehaviour
     //SoundEffect
     public AudioSource audioSource;
     public AudioClip jumpSound;
-//
-    
+    //ゴール演出
+    public bool canMove = true;
+    public bool startWiningRun=false;
+    public BGMCtrl bgmCtrl;
+    public GameObject goalObj;
+    public float countTime = 1;
+    bool isGoal = false;
+
 
     private void Awake()
     {
@@ -50,50 +56,68 @@ public class PlayerCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         move = Input.GetAxisRaw("Horizontal");
 
-         animCtrl.SetFloat("toRun", Mathf.Abs(move));
-         animCtrl.SetFloat("yVelocity", rb.velocity.y);
+        if (canMove)
+        {
+            
+            move = Input.GetAxisRaw("Horizontal");
+            
+
+            animCtrl.SetFloat("toRun", Mathf.Abs(move));
+            animCtrl.SetFloat("yVelocity", rb.velocity.y);
 
 
-         //向きの変更
-         if (move < 0 && facingRight)
-         {
-             Flip();
-         }
-         else if (move > 0 && !facingRight)
-         {
-             Flip();
-         }
+            //向きの変更
+            if (move < 0 && facingRight)
+            {
+                Flip();
+            }
+            else if (move > 0 && !facingRight)
+            {
+                Flip();
+            }
 
-          //ジャンプ開始
-         if (Input.GetButtonDown("Jump") && isGround)
-         {
-           　isJumping = true;
-             jumpTime = jumpStartTime;
-             Jump();
-                
-             animCtrl.SetBool("Jump", true);
-         }
-         //ジャンプの高さ調節
-         else if (Input.GetButton("Jump") && isJumping == true)
-         {
-           　if (jumpTime > 0)
-             {
-                rb.velocity = Vector2.up * jumpForce;
-                jumpTime -= Time.deltaTime;
-             }
-             else
-             {
-                 isJumping = false;
-             }
-         }
-         else if (Input.GetButtonUp("Jump")&&isJumping==true)
-         {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0) * Time.deltaTime;
-             isJumping = false;
-         }
+            //ジャンプ開始
+            if (Input.GetButtonDown("Jump") && isGround)
+            {
+                isJumping = true;
+                jumpTime = jumpStartTime;
+                Jump();
 
+                animCtrl.SetBool("Jump", true);
+            }
+            //ジャンプの高さ調節
+            else if (Input.GetButton("Jump") && isJumping == true)
+            {
+                if (jumpTime > 0)
+                {
+                    rb.velocity = Vector2.up * jumpForce;
+                    jumpTime -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }
+            }
+            else if (Input.GetButtonUp("Jump") && isJumping == true)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0) * Time.deltaTime;
+                isJumping = false;
+            }
+
+        }
+
+        if (startWiningRun == true)
+        {
+            CanWalk()
+;        }
+
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log("スタート");
+            StartCoroutine(GameClear());
+        }
     }
 
     public void Flip()
@@ -139,6 +163,13 @@ public class PlayerCtrl : MonoBehaviour
             PlayerDeath();
         }
 
+        else if (collision.CompareTag("Gem") && isGoal==false)
+        {
+            collision.GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine(GameClear());
+            isGoal = true;
+        }
+
     }
 
 
@@ -154,6 +185,39 @@ public class PlayerCtrl : MonoBehaviour
     {
         SceneManager.LoadScene("GameOverScene");
     }
+
+
+
+
+
+    IEnumerator GameClear()
+    {
+        canMove = false;
+        
+        //animCtrl.SetFloat("toRun", 0);
+        //animCtrl.SetTrigger("Goal");
+
+        bgmCtrl.StopBgm();
+        yield return new WaitForSeconds(0.5f);
+        bgmCtrl.StageClearBgm();
+        startWiningRun = true;
+        yield return new WaitForSeconds(countTime);
+        startWiningRun = false;
+        Time.timeScale = 1;
+        move = 0;
+        animCtrl.SetFloat("toRun", 0);
+        Instantiate(goalObj, transform.position, transform.rotation);
+        
+        animCtrl.SetTrigger("StartGoalAnim");
+    }
+
+    public void CanWalk()
+    {
+        Time.timeScale = 0.4f;
+        move = 0.4f;
+        animCtrl.SetFloat("toRun", Mathf.Abs(move));
+    }
+
 
 
 }

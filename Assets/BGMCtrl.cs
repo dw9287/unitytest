@@ -5,6 +5,7 @@ using UnityEngine;
 public class BGMCtrl : MonoBehaviour
 {
     public AudioSource audioSource;
+    public AudioClip clearBgm;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +21,10 @@ public class BGMCtrl : MonoBehaviour
     public void StopBgm()
     {
         audioSource.clip = null;
+    }
+    public void StageClearBgm()
+    {
+        Debug.Log("ÉNÉäÉAÅ[BGM");
+        audioSource.PlayOneShot(clearBgm);
     }
 }

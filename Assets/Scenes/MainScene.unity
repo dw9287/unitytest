@@ -280,6 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3102fe667b0a054ea087e2b2a388a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &406525045 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1564447215322438942, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+  m_PrefabInstance: {fileID: 1226196123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &406525048
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6858,9 +6863,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 406525047, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 406525045}
+    - target: {fileID: 406525047, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: bgmCtrl
       value: 
       objectReference: {fileID: 156598885}
+    - target: {fileID: 406525047, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 406525047, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: playerCtrl
       value: 
@@ -6930,6 +6943,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: e5177dc3ba3f0584eb5833695397a979, type: 3}
     - target: {fileID: 1564447215322438943, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564447215322438943, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 406525048}
@@ -6937,7 +6954,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.69
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406525047, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
 --- !u!1 &1319550466
 GameObject:
