@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 156598884}
+  clearBgm: {fileID: 8300000, guid: b0e4b4e6a804f4f4c8acabd278faf8c8, type: 3}
 --- !u!4 &156598886
 Transform:
   m_ObjectHideFlags: 0
@@ -493,7 +494,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.25485086, y: 0.59997046, z: -10}
+  m_LocalPosition: {x: 3.84, y: 0.5999769, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1245,7 +1246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608952182}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.19, y: 1.38, z: -10}
+  m_LocalPosition: {x: 3.84, y: 1.38, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 558695288}
@@ -1367,7 +1368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984463191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.22, y: -0.66, z: 0}
+  m_LocalPosition: {x: 11.22, y: -0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6896,7 +6897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1564447215322438941, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.19
+      value: 3.84
       objectReference: {fileID: 0}
     - target: {fileID: 1564447215322438941, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6933,6 +6934,18 @@ PrefabInstance:
     - target: {fileID: 1564447215322438941, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564447215322438943, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 4435011037749439408, guid: 36f53601331ab3a46bce7f7c6faf9c51, type: 3}
+    - target: {fileID: 1564447215322438943, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: bgmCtrl
+      value: 
+      objectReference: {fileID: 156598885}
+    - target: {fileID: 1564447215322438943, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
+      propertyPath: countTime
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 1564447215322438943, guid: 3220d48edc01fa44da65d1f8aa4b3c00, type: 3}
       propertyPath: hurtSound

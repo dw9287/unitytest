@@ -34,6 +34,7 @@ public class PlayerCtrl : MonoBehaviour
     public bool startWiningRun=false;
     public BGMCtrl bgmCtrl;
     public GameObject goalObj;
+    public GameObject fade;
     public float countTime = 1;
     bool isGoal = false;
 
@@ -198,6 +199,7 @@ public class PlayerCtrl : MonoBehaviour
         //animCtrl.SetTrigger("Goal");
 
         bgmCtrl.StopBgm();
+        Instantiate(fade, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.5f);
         bgmCtrl.StageClearBgm();
         startWiningRun = true;
@@ -206,8 +208,9 @@ public class PlayerCtrl : MonoBehaviour
         Time.timeScale = 1;
         move = 0;
         animCtrl.SetFloat("toRun", 0);
+        yield return new WaitForSeconds(0.3f);
         Instantiate(goalObj, transform.position, transform.rotation);
-        
+        yield return new WaitForSeconds(0.5f);
         animCtrl.SetTrigger("StartGoalAnim");
     }
 
