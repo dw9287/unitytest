@@ -36,8 +36,9 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject goalObj;
     public GameObject fade;
     public float countTime = 1;
-    public float CountForGoalObj = 0.5f;
+    public float countForGoalObj = 0.5f;
     bool isGoal = false;
+    public float countForStartGoalAnim = 0.5f;
 
 
     private void Awake()
@@ -68,7 +69,7 @@ public class PlayerCtrl : MonoBehaviour
 
             animCtrl.SetFloat("yVelocity", rb.velocity.y);
 
-
+            
             //Œü‚«‚Ì•ÏX
             if (move < 0 && facingRight)
             {
@@ -208,14 +209,15 @@ public class PlayerCtrl : MonoBehaviour
         startWiningRun = false;
         move = 0;
         animCtrl.SetFloat("toRun", 0);
-        yield return new WaitForSeconds(CountForGoalObj);
+        yield return new WaitForSeconds(countForGoalObj);
         Instantiate(goalObj, transform.position, transform.rotation);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(countForStartGoalAnim);
         animCtrl.SetTrigger("StartGoalAnim");
     }
 
     public void CanWalk()
     {
+        if (facingRight == false) Flip();
         move = 0.16f;
         animCtrl.SetFloat("toRun", Mathf.Abs(move));
     }
