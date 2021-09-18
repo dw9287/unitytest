@@ -36,6 +36,7 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject goalObj;
     public GameObject fade;
     public float countTime = 1;
+    public float CountForGoalObj = 0.5f;
     bool isGoal = false;
 
 
@@ -60,11 +61,11 @@ public class PlayerCtrl : MonoBehaviour
 
         if (canMove)
         {
-            
-            move = Input.GetAxisRaw("Horizontal");
-            
 
-            animCtrl.SetFloat("toRun", Mathf.Abs(move));
+            move = Input.GetAxisRaw("Horizontal");
+
+            if(isGround) animCtrl.SetFloat("toRun", Mathf.Abs(move));
+
             animCtrl.SetFloat("yVelocity", rb.velocity.y);
 
 
@@ -205,10 +206,9 @@ public class PlayerCtrl : MonoBehaviour
         startWiningRun = true;
         yield return new WaitForSeconds(countTime);
         startWiningRun = false;
-        Time.timeScale = 1;
         move = 0;
         animCtrl.SetFloat("toRun", 0);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(CountForGoalObj);
         Instantiate(goalObj, transform.position, transform.rotation);
         yield return new WaitForSeconds(0.5f);
         animCtrl.SetTrigger("StartGoalAnim");
@@ -216,8 +216,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public void CanWalk()
     {
-        Time.timeScale = 0.4f;
-        move = 0.4f;
+        move = 0.16f;
         animCtrl.SetFloat("toRun", Mathf.Abs(move));
     }
 
